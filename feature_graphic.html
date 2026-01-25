@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Habit Tracker - Feature Graphic</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .toolbar {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .toolbar h2 {
+            font-size: 18px;
+            color: #333;
+        }
+        .toolbar span {
+            color: #666;
+            font-size: 14px;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 184, 148, 0.4);
+        }
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        .graphic-wrapper {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .container {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 50%, #81ECEC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .content {
+            z-index: 2;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 64px;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .tagline {
+            font-size: 26px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.4;
+        }
+        .phone-mockup {
+            width: 220px;
+            height: 440px;
+            background: #1a1a2e;
+            border-radius: 35px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform: rotate(5deg);
+            z-index: 2;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-header {
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            padding: 15px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .phone-content {
+            padding: 10px;
+            flex: 1;
+        }
+        .habit-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #F8FFF8;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+        .habit-check {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #00B894;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: white;
+            font-size: 14px;
+        }
+        .habit-check.pending {
+            background: #E0E0E0;
+        }
+        .habit-details {
+            flex: 1;
+        }
+        .habit-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #2D3436;
+        }
+        .habit-streak {
+            font-size: 10px;
+            color: #00B894;
+            font-weight: 500;
+        }
+        .habit-icon {
+            font-size: 20px;
+        }
+        .bg-circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        .circle1 { width: 300px; height: 300px; top: -100px; right: 200px; }
+        .circle2 { width: 200px; height: 200px; bottom: -50px; left: 100px; }
+        .circle3 { width: 150px; height: 150px; top: 50px; left: -50px; }
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .icon svg {
+            width: 45px;
+            height: 45px;
+            fill: #00B894;
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <h2>Habit Tracker Feature Graphic</h2>
+        <span>1024 x 500 px (Google Play Console)</span>
+        <button class="download-btn" onclick="downloadGraphic()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download PNG
+        </button>
+    </div>
+
+    <div class="graphic-wrapper">
+        <div class="container" id="graphic">
+            <div class="bg-circles">
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <h1>Habit Tracker</h1>
+                <p class="tagline">Build better habits. Track streaks and achieve your goals.</p>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-header">My Habits</div>
+                    <div class="phone-content">
+                        <div class="habit-item">
+                            <div class="habit-check">&#10003;</div>
+                            <div class="habit-details">
+                                <div class="habit-name">Morning Exercise</div>
+                                <div class="habit-streak">12 day streak</div>
+                            </div>
+                            <div class="habit-icon">&#127939;</div>
+                        </div>
+                        <div class="habit-item">
+                            <div class="habit-check">&#10003;</div>
+                            <div class="habit-details">
+                                <div class="habit-name">Read 30 mins</div>
+                                <div class="habit-streak">8 day streak</div>
+                            </div>
+                            <div class="habit-icon">&#128214;</div>
+                        </div>
+                        <div class="habit-item">
+                            <div class="habit-check">&#10003;</div>
+                            <div class="habit-details">
+                                <div class="habit-name">Drink Water</div>
+                                <div class="habit-streak">21 day streak</div>
+                            </div>
+                            <div class="habit-icon">&#128167;</div>
+                        </div>
+                        <div class="habit-item">
+                            <div class="habit-check pending"></div>
+                            <div class="habit-details">
+                                <div class="habit-name">Meditate</div>
+                                <div class="habit-streak">5 day streak</div>
+                            </div>
+                            <div class="habit-icon">&#129504;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadGraphic() {
+            const element = document.getElementById('graphic');
+            html2canvas(element, {
+                width: 1024,
+                height: 500,
+                scale: 1,
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'habit_tracker_feature_graphic_1024x500.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
