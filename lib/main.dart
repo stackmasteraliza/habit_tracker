@@ -51,31 +51,19 @@ class AboutScreen extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.2),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: const Icon(Icons.arrow_back_rounded, color: Colors.white),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(12),
                           ),
+                          child: const Icon(Icons.arrow_back_rounded, color: Colors.white),
                         ),
-                        const Spacer(),
-                        const Text(
-                          'About',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const Spacer(),
-                        const SizedBox(width: 48),
-                      ],
+                      ),
                     ),
                     const SizedBox(height: 32),
                     Container(
@@ -91,15 +79,31 @@ class AboutScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: const CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Color(0xFFE8FFF8),
-                        child: Text(
-                          'AA',
-                          style: TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF00B894),
+                      child: ClipOval(
+                        child: SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: Image.network(
+                            'https://github.com/stackmasteraliza.png',
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Image.asset(
+                                'assets/icon.png',
+                                fit: BoxFit.cover,
+                              );
+                            },
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Container(
+                                color: const Color(0xFFE8FFF8),
+                                child: const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Color(0xFF00B894),
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -215,37 +219,50 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Row(
+                  child: Column(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFF00B894), Color(0xFF55EFC4)],
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: const Icon(Icons.check_circle_rounded, color: Colors.white, size: 32),
-                      ),
-                      const SizedBox(width: 16),
-                      const Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Habit Tracker',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF2D3436),
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF00B894), Color(0xFF55EFC4)],
                               ),
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                            SizedBox(height: 4),
-                            Text(
-                              'Version 1.0.0',
-                              style: TextStyle(color: Colors.grey),
+                            child: const Icon(Icons.check_circle_rounded, color: Colors.white, size: 32),
+                          ),
+                          const SizedBox(width: 16),
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Habit Tracker',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF2D3436),
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  'Version 1.0.0',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        'Build better habits and achieve your goals with this beautiful habit tracker. Create daily habits, track your streaks, and stay motivated on your journey to self-improvement.',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[700],
+                          height: 1.5,
                         ),
                       ),
                     ],
