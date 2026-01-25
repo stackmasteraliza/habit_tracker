@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Habit Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: #2D3436;
+            background: linear-gradient(135deg, #E8FFF8 0%, #D4FFF0 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+        }
+        h1 {
+            color: #00B894;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #636E72;
+            font-size: 1.1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            color: #00B894;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            border-radius: 2px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #636E72;
+        }
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            color: #636E72;
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #E8FFF8 0%, #D4FFF0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #00B894;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #636E72;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .last-updated {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .feature-item {
+            background: linear-gradient(135deg, #E8FFF8 0%, #D4FFF0 100%);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .feature-text {
+            font-size: 0.9rem;
+            color: #00B894;
+            font-weight: 600;
+        }
+        .developer-section {
+            background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+        }
+        .developer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .developer-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+        .developer-section a {
+            display: inline-block;
+            background: white;
+            color: #00B894;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .developer-section a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .developer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/stackmasteraliza/habit_tracker/main/assets/icon.png" alt="Habit Tracker Icon" class="app-icon" onerror="this.style.display='none'">
+            <h1>Habit Tracker</h1>
+            <p class="subtitle">Privacy Policy</p>
+            <p class="last-updated">Last Updated: January 25, 2026</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Privacy First</span>
+            <div class="highlight">
+                <p><strong>Habit Tracker</strong> is built with privacy at its core. Your habits, streaks, and personal goals are stored only on your device. We believe your journey to self-improvement should remain private.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Information We Collect</h2>
+            <p><strong>We collect absolutely no personal information.</strong></p>
+            <p>Habit Tracker stores all data locally on your device:</p>
+            <ul>
+                <li>Habit names and descriptions</li>
+                <li>Completion history and dates</li>
+                <li>Streak counts</li>
+                <li>Icon and color preferences</li>
+            </ul>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-text">No Cloud Storage</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-text">Device Only</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚫</div>
+                    <div class="feature-text">No Tracking</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-text">100% Private</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Data Storage</h2>
+            <p>Your habit data is stored securely on your device's local storage:</p>
+            <ul>
+                <li>Data never leaves your device</li>
+                <li>No internet connection required</li>
+                <li>No account creation needed</li>
+                <li>No synchronization with external services</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Third-Party Services</h2>
+            <p>Habit Tracker operates independently without any third-party integrations:</p>
+            <ul>
+                <li><strong>No Analytics:</strong> We don't track how you use the app</li>
+                <li><strong>No Advertising:</strong> No ads, no ad networks</li>
+                <li><strong>No Social Features:</strong> No sharing or social media integration</li>
+                <li><strong>No External APIs:</strong> Everything works offline</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Permissions</h2>
+            <p>Habit Tracker requests only essential permissions:</p>
+            <ul>
+                <li><strong>Storage:</strong> To save your habits and progress locally</li>
+            </ul>
+            <p>We respect your privacy and never request unnecessary permissions like camera, microphone, contacts, or location.</p>
+        </div>
+
+        <div class="card">
+            <h2>Your Control</h2>
+            <p>You have complete control over your data:</p>
+            <ul>
+                <li><strong>Delete habits:</strong> Swipe to remove any habit instantly</li>
+                <li><strong>Reset progress:</strong> Clear completion history anytime</li>
+                <li><strong>Uninstall:</strong> Removing the app deletes all data permanently</li>
+            </ul>
+            <p>We do not retain any backup of your data once deleted.</p>
+        </div>
+
+        <div class="card">
+            <h2>Children's Privacy</h2>
+            <p>Habit Tracker is safe for users of all ages. We do not collect personal information from anyone, including children under 13. The app can help young users build positive habits in a completely private environment.</p>
+        </div>
+
+        <div class="card">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy occasionally. Any changes will be reflected on this page with an updated date. We encourage you to review this policy periodically.</p>
+        </div>
+
+        <div class="card">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+            <p><strong>Email:</strong> stackmasteraliza@gmail.com</p>
+        </div>
+
+        <div class="developer-section">
+            <img src="https://github.com/stackmasteraliza.png" alt="Developer" class="developer-avatar">
+            <h3>Developed by Aliza Ali</h3>
+            <p>Full-Stack Developer passionate about creating beautiful and functional applications.</p>
+            <a href="https://alizaali.com" target="_blank">Visit My Portfolio</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Habit Tracker. All rights reserved.</p>
+            <p style="margin-top: 10px;">Made with love by <a href="https://alizaali.com" style="color: #00B894; text-decoration: none;">Aliza Ali</a></p>
+        </div>
+    </div>
+</body>
+</html>
