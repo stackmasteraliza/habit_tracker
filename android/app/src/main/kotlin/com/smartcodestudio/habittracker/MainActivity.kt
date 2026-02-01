@@ -1,0 +1,5 @@
+package com.smartcodestudio.habittracker
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity()
